@@ -1,0 +1,38 @@
+{
+  "user": {
+    "user_id": "stu_demo01",
+    "name": "Ayesha Rahman",
+    "home_country": "Bangladesh",
+    "study_country": "China",
+    "home_currency": "BDT",
+    "study_currency": "CNY",
+    "monthly_budget_cny": 6000.0,
+    "daily_transfer_limit_cny": 20000.0,
+    "trusted_beneficiaries": ["Shenzhen University", "Mom", "Landlord Li"]
+  },
+  "fx_rates": {
+    "CNY": 1.0,
+    "USD": 7.12,
+    "BDT": 0.061,
+    "EUR": 7.72,
+    "GBP": 9.01,
+    "HKD": 0.913,
+    "SGD": 5.28,
+    "JPY": 0.0477
+  },
+  "transactions": [
+    {"kind": "expense", "category": "tuition", "amount": 8000, "currency": "CNY", "note": "Tuition installment Sep", "merchant": "Shenzhen University"},
+    {"kind": "expense", "category": "rent", "amount": 2200, "currency": "CNY", "note": "Sep rent", "merchant": "Landlord Li"},
+    {"kind": "expense", "category": "food", "amount": 1250, "currency": "CNY", "note": "Canteen + groceries", "merchant": "Campus Canteen"},
+    {"kind": "expense", "category": "transport", "amount": 320, "currency": "CNY", "note": "Metro top-up", "merchant": "Shenzhen Metro"},
+    {"kind": "expense", "category": "shopping", "amount": 860, "currency": "CNY", "note": "Winter clothes", "merchant": "Taobao"},
+    {"kind": "expense", "category": "subscription", "amount": 15, "currency": "CNY", "note": "iCloud monthly", "merchant": "Apple"},
+    {"kind": "expense", "category": "subscription", "amount": 15, "currency": "CNY", "note": "iCloud monthly Aug", "merchant": "Apple"},
+    {"kind": "expense", "category": "subscription", "amount": 15, "currency": "CNY", "note": "iCloud monthly Jul", "merchant": "Apple"},
+    {"kind": "expense", "category": "subscription", "amount": 68, "currency": "CNY", "note": "Video membership", "merchant": "Tencent Video"},
+    {"kind": "expense", "category": "food", "amount": 4500, "currency": "BDT", "note": "Family support Dhaka", "merchant": "Bkash"},
+    {"kind": "income", "category": "scholarship", "amount": 3000, "currency": "CNY", "note": "Monthly stipend", "merchant": "Shenzhen University"},
+    {"kind": "income", "category": "family", "amount": 50000, "currency": "BDT", "note": "Family remittance in", "merchant": "Mom"},
+    {"kind": "expense", "category": "food", "amount": 4200, "currency": "CNY", "note": "Unusual luxury dinner - anomaly demo", "merchant": "Seaside Restaurant"}
+  ]
+}
