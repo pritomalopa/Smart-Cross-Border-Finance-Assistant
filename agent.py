@@ -69,11 +69,13 @@ def chat(message: str, lang: str = "auto") -> dict:
         store.audit("budget_summary", {"total_cny": total})
         return {"reply": reply, "lang": use_lang, "intent": "budget", "data": {"totals": totals, "total": total}}
 
-    # 4) FX rate
-    if any(k in low for k in ["fx", "exchange rate", "汇率", "rate", "রেট", "ডলার", "convert"]):
+    # 4) FX rate (also trigger on explicit "XXX to YYY" currency pair)
+    _fx_pair = re.search(r"(USD|CNY|BDT|EUR|HKD|SGD|JPY|GBP)\s*(?:to|->|换|到)\s*(USD|CNY|BDT|EUR|HKD|SGD|JPY|GBP)", raw, re.I)
+    _is_remit = any(k in low for k in ["remit", "quote", "cheapest", "wise", "swift", "汇款", "রেমিট্যান্স", "পাঠাও"])
+    if (any(k in low for k in ["fx", "exchange rate", "汇率", "rate", "রেট", "ডলার", "convert"]) or _fx_pair) and not _is_remit:
         amt, cur = _extract_amount_currency(raw)
         # pattern "USD to CNY" / "美元"
-        m = re.search(r"(USD|CNY|BDT|EUR|HKD|SGD|JPY|GBP)\s*(?:to|->|换|到)\s*(USD|CNY|BDT|EUR|HKD|SGD|JPY|GBP)", raw.upper())
+        m = _fx_pair
         if m:
             a, b = m.group(1), m.group(2)
             r = convert(1, a, b, store.fx_rates)
